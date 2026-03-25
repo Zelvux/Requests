@@ -1,10 +1,29 @@
 {
   "name": "Approve-All-JoinRequests",
-  "description": "Approve all pending join requests on your telegram channel with using user session",
-  "keywords": ["telegram", "bot"],
+  "description": "Approve all pending join requests on your telegram channel using user session (Pyrogram v2)",
+  "keywords": [
+    "telegram",
+    "pyrogram",
+    "userbot",
+    "join-requests"
+  ],
   "repository": "https://github.com/MrMKN/Approve-All-JoinRequests",
   "env": {
-    "SESSION": {"description": "pyrogram v2 session string ⚠️ v2 required ⚠️", "value": ""},              
+    "SESSION": {
+      "description": "Pyrogram v2 session string (required)",
+      "required": true
+    }
   },
-  "buildpacks": [{"url": "heroku/python"}]
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "stack": "heroku-24"
 }
